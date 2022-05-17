@@ -1,9 +1,9 @@
-
+import { Navbar } from './components'
 
 function App() {
   return (
     <>
-      <div>Hiii</div>
+      <Navbar />
     </>
   );
 }
