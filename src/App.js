@@ -1,9 +1,10 @@
-import { Navbar } from './components'
+import React from 'react';
+import { HomePage } from './pages';
 
 function App() {
   return (
     <>
-      <Navbar />
+      <HomePage />
     </>
   );
 }
