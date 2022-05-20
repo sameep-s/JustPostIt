@@ -105,7 +105,7 @@
     padding: 0 .5rem;
     border: none;
     resize: none;
-    height: 10rem;
+    height: 6rem;
 }
 
 .post__options .user__post__btn{
@@ -132,6 +132,38 @@
 }
 
 
+/* --------------------------------- USER-TWEET BODY---------------------------------------- */
+.post__container__main{
+    border: 1px solid var(--dark);
+}
+
+.user__name__tweet{
+    font-weight: bold;
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+}
+
+.user__id__tweet{
+    font-size: 1.1rem;
+}
+
+
+.tweet__body__content{
+    font-size: 2rem;
+}
+
+.user__tweet__actions .svg-inline--fa{
+    height: 2rem;
+    width: 2rem;
+    cursor: pointer;
+    margin: 1rem 0;
+    border-radius: 50%;
+    transition: 200ms;
+}
+
+.user__tweet__actions .svg-inline--fa:hover{
+    color: var(--primary);
+}
 
 
 /* ----------------------------------right area--------------------------------------- */
@@ -139,6 +171,70 @@
 
 
 .right__side__items{
-    /* background-color: var(--danger-shade); */
+    border: 1px solid black;
     width: 40rem;
 }
+
+.right__side__search__bar{
+    width: 80%;
+}
+
+.right__side__search__bar input{
+    width: 100%;
+    margin: 1rem;
+}
+
+.container__followSuggestions{
+    border: 1px solid var(--dark);
+    width: 90%;
+}
+
+.heading__followSuggestions{
+    padding: 1rem;
+    width: 100%;
+    border-bottom: 1px solid var(--dark);
+}
+
+.heading__followSuggestions span{
+    font-weight: bold;
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+}
+
+.heading__followSuggestions button{
+    margin: 0;
+    margin-left: auto;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+
+/* ---------------------------------------------user list item */
+
+.user__list__item__container{
+    width: 100%;
+}
+
+.user__listItem__info__container .user__listItem__info .user__listItem__name{
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+
+.user__listItem__info__container{
+    width: 100%;
+}
+
+.user__listItem__info__container .user__listItem__info .user__listItem__userName{
+    font-size: 1.2rem;
+}
+
+
+.user__listItem__info__container button{
+    font-size: 1.4rem;
+    margin: 0;
+    padding: .1rem 1.5rem;
+    margin-left: auto;
+}
+
+
