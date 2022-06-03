@@ -2,6 +2,9 @@
 
 .right__side__items{
     width: 40rem;
+    top: 0;
+    right: 0;
+    height: 100vh;
 }
 
 .right__side__search__bar{
@@ -27,13 +30,6 @@
     font-weight: bold;
     font-family: var(--font-heading);
     font-size: 1.5rem;
-}
-
-.heading__followSuggestions button{
-    margin: 0;
-    margin-left: auto;
-    font-size: 1.2rem;
-    font-weight: bold;
 }
 
 

@@ -23,7 +23,6 @@ const HomePage = () => {
                             <PostContainer />
                         </div>
                     </div>
-
                     <RightSidebar />
                 </main>
             </div >

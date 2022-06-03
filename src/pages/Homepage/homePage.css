@@ -9,6 +9,5 @@
     width: 60rem;
     border-left: 1px solid var(--dark);
     border-right: 1px solid var(--dark);
-    overflow-y: scroll;
 }
 
