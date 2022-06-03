@@ -5,7 +5,7 @@ const RightSidebar = () => {
     return (
         <>
             <aside className='right__side__items'>
-                <div className="right__side__container__main flex a-item-center flex-col">
+                <div className="right__side__container__main flex a-item-center jc-center flex-col">
                     <div className="right__side__search__bar">
                         <input type="text" placeholder='Enter the UserName to Search' className='input-txt' name="" id="" />
                     </div>

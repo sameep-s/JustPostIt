@@ -3,17 +3,15 @@
 
 
 .right__side__items{
-    border: 1px solid black;
     width: 40rem;
 }
 
 .right__side__search__bar{
-    width: 80%;
+    width: 90%;
 }
 
 .right__side__search__bar input{
-    width: 100%;
-    margin: 1rem;
+    margin: 1rem 0;
 }
 
 .container__followSuggestions{
