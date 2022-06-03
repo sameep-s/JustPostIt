@@ -1,0 +1,35 @@
+
+/* --------------------------------- USER-post BODY---------------------------------------- */
+.post__container__main{
+    border: 1px solid var(--dark);
+}
+
+.user__name__post{
+    font-weight: bold;
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+}
+
+.user__id__post{
+    font-size: 1.1rem;
+}
+
+
+.post__body__content{
+    font-size: 2rem;
+}
+
+.user__post__actions .svg-inline--fa{
+    height: 2rem;
+    width: 2rem;
+    cursor: pointer;
+    margin: 1rem 0;
+    border-radius: 50%;
+    transition: 200ms;
+}
+
+.user__post__actions .svg-inline--fa:hover{
+    color: var(--primary);
+}
+
+
