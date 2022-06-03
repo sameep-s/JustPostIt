@@ -132,27 +132,27 @@
 }
 
 
-/* --------------------------------- USER-TWEET BODY---------------------------------------- */
+/* --------------------------------- USER-post BODY---------------------------------------- */
 .post__container__main{
     border: 1px solid var(--dark);
 }
 
-.user__name__tweet{
+.user__name__post{
     font-weight: bold;
     font-family: var(--font-heading);
     font-size: 1.5rem;
 }
 
-.user__id__tweet{
+.user__id__post{
     font-size: 1.1rem;
 }
 
 
-.tweet__body__content{
+.post__body__content{
     font-size: 2rem;
 }
 
-.user__tweet__actions .svg-inline--fa{
+.user__post__actions .svg-inline--fa{
     height: 2rem;
     width: 2rem;
     cursor: pointer;
@@ -161,7 +161,7 @@
     transition: 200ms;
 }
 
-.user__tweet__actions .svg-inline--fa:hover{
+.user__post__actions .svg-inline--fa:hover{
     color: var(--primary);
 }
 

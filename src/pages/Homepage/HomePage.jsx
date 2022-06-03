@@ -74,19 +74,19 @@ const HomePage = () => {
                                     />
                                 </div>
 
-                                <div className="user__tweet__body">
-                                    <div className="tweet__body__userInfo">
-                                        <span className="user__name__tweet">Sameep Sharma</span>
-                                        <span className="user__id__tweet txt-gray ml-1">@_sameep_</span>
+                                <div className="user__post__body">
+                                    <div className="post__body__userInfo">
+                                        <span className="user__name__post">Sameep Sharma</span>
+                                        <span className="user__id__post txt-gray ml-1">@_sameep_</span>
                                     </div>
 
-                                    <div className="tweet__body__content">
+                                    <div className="post__body__content">
                                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Error saepe tempora impedit dolorum aperiam, perferendis iusto repellendus corporis
 
                                         illo inventore, sequi beatae libero, nulla magnam.
                                     </div>
 
-                                    <div className="user__tweet__actions flex jc-space-btw">
+                                    <div className="user__post__actions flex jc-space-btw">
                                         <FontAwesomeIcon icon={faHeart} />
                                         <FontAwesomeIcon icon={faComment} />
                                         <FontAwesomeIcon icon={faShareNodes} />
