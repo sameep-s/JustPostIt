@@ -1,5 +1,5 @@
 import React from 'react';
-import { faBell, faBookmark, faFeatherPointed, faHashtag, faHome, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faArrowRightFromBracket, faBell, faBookmark, faFeatherPointed, faHashtag, faHome, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './leftSidebar.css';
 
@@ -29,6 +29,7 @@ const LeftSidebar = () => {
                         alt="user__avatar"
                     />
                     <div className="user__name">SAMEEP</div>
+                    <span><FontAwesomeIcon icon={faArrowRightFromBracket} /></span>
                 </div>
             </aside>
         </>

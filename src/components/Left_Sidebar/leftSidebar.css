@@ -70,4 +70,18 @@
     border: .1rem solid var(--dark);
 }
 
+.profile__container span{
+    margin-left: auto;
+}
+
+.profile__container span .fa-arrow-right-from-bracket{
+    height: 2rem;
+    width: 2rem;
+    cursor: pointer;
+    transition: 200ms;
+}
+
+.profile__container span .fa-arrow-right-from-bracket:hover{
+    color: var(--primary);
+}
 
