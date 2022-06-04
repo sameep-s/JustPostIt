@@ -18,6 +18,7 @@
 .container__followSuggestions{
     border: 1px solid var(--dark);
     width: 90%;
+    border-radius: 1rem;
 }
 
 .heading__followSuggestions{
