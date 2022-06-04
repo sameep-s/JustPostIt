@@ -2,6 +2,13 @@
 /* --------------------------------- USER-post BODY---------------------------------------- */
 .post__container__main{
     border: 1px solid var(--dark);
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: 300ms;
+}
+
+.post__container__main:hover{
+    background-color: var(--dark-shade);
 }
 
 .user__name__post{
