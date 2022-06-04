@@ -19,6 +19,9 @@
     height: 6rem;
 }
 
+.post__options{
+    border-top: .1rem solid var(--dark);
+}
 .post__options .user__post__btn{
     margin-left: auto;
     font-size: 2rem;

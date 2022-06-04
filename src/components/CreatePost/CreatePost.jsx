@@ -18,7 +18,7 @@ const CreatePost = () => {
                 <div className="user__action__contianer">
                     <textarea className='post__textarea' placeholder="What's happening?" ></textarea>
                     <div className="post__options flex a-item-center ">
-                        <div className="user__post__icons flex  ">
+                        <div className="user__post__icons flex a-item-center ">
                             <FontAwesomeIcon className='user__post__icon' icon={faImage} />
                             <div className="user__post__icon">gif</div>
                         </div>
