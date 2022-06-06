@@ -1,3 +1,8 @@
 import HomePage from './Homepage/HomePage';
+import LandingPage from './LandingPage/LandingPage';
 
-export { HomePage };
+
+export {
+    HomePage,
+    LandingPage
+};

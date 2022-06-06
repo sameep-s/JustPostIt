@@ -1,0 +1,23 @@
+.banner__landingPage{
+    height: 100vh;
+    width: 50vw;
+}
+
+.banner__landingPage img{
+    width: 100%;
+}
+
+.container__info__landingPage{
+    width: 50vw;
+}
+
+.Text__landingPage{
+    font-size: 5rem ;
+    font-weight: bold;
+    font-family: var(--font-heading);
+}
+
+.container__info__landingPage button{
+    font-size: 3rem;
+    padding: 1rem 3rem;
+}
