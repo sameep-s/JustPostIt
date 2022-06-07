@@ -1,0 +1,13 @@
+.container__inner__notification{
+    width: 60rem;
+    border-right: .1rem solid var(--dark);
+    border-left: .1rem solid var(--dark);
+}
+
+
+.container__inner__notification .heading{
+    font-size: 3rem;
+    font-weight: bold;
+    font-family: var(--font-heading);
+    border-bottom: .1rem solid var(--dark);
+}

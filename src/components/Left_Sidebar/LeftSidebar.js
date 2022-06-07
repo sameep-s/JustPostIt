@@ -35,10 +35,19 @@ const LeftSidebar = () => {
                             <li> <div> <FontAwesomeIcon icon={faHashtag}></FontAwesomeIcon> <span className='link__text'>Explore</span> </div></li>
                         </NavLink>
 
-                        <li> <div> <FontAwesomeIcon icon={faBookmark}></FontAwesomeIcon> <span className='link__text'>Bookmarks</span> </div></li>
-                        <li> <div> <FontAwesomeIcon icon={faBell}></FontAwesomeIcon> <span className='link__text'>Notification</span> </div></li>
-                        <li> <div> <FontAwesomeIcon icon={faUser}></FontAwesomeIcon> <span className='link__text'>Profile</span> </div></li>
+                        <NavLink to={"/notificationPage"} style={styleActiveNav}>
+                            <li> <div> <FontAwesomeIcon icon={faBell}></FontAwesomeIcon> <span className='link__text'>Notification</span> </div></li>
+                        </NavLink>
+
+                        <NavLink to={"/bookmarksPage"} style={styleActiveNav}>
+                            <li> <div> <FontAwesomeIcon icon={faBookmark}></FontAwesomeIcon> <span className='link__text'>Bookmarks</span> </div></li>
+                        </NavLink>
+
+                        <NavLink to={"/profile"} style={styleActiveNav}>
+                            <li> <div> <FontAwesomeIcon icon={faUser}></FontAwesomeIcon> <span className='link__text'>Profile</span> </div></li>
+                        </NavLink>
                     </ul>
+
                 </div>
                 <button className="sidebar__action__buutton btn btn-primary">Post</button>
 
