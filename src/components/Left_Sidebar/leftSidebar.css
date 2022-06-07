@@ -36,12 +36,12 @@
     border-radius: 10rem;
     display: inline-flex;
     padding: 1rem 1.4rem;
-    margin-top: .5rem;
-    transition: 300ms;
+    margin: 1rem 0;
+    transition: 400ms;
 }
 
 .sidebar__links ul li:hover > div{
-    background-color: var(--dark);
+    background-color: var(--primary-shade);
 }
 
 .sidebar__links ul li .svg-inline--fa{

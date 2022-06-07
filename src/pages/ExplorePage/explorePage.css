@@ -1,0 +1,28 @@
+.container__inner__explore{
+    width: 60rem;
+    border-left: .1rem solid var(--dark);
+    border-right: .1rem solid var(--dark);
+}
+
+.page__heading{
+    font-size: 3rem;
+    font-weight: bold;
+    font-family: var(--font-heading);
+}
+
+.explore__option{
+    transition: 250ms;
+    cursor: pointer;
+}
+
+.explore__option > div{
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: var(--font-heading);
+    height: 100%;
+    width: 100%;
+}
+
+.explore__option:hover{
+    background-color: var(--dark-shade);
+}

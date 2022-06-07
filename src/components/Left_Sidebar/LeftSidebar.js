@@ -26,10 +26,15 @@ const LeftSidebar = () => {
                 </div>
                 <div className='sidebar__links flex flex-col'>
                     <ul>
+
                         <NavLink to={"/home"} style={styleActiveNav}>
                             <li> <div> <FontAwesomeIcon icon={faHome} /> <span className='link__text'>Home</span> </div></li>
                         </NavLink>
-                        <li> <div> <FontAwesomeIcon icon={faHashtag}></FontAwesomeIcon> <span className='link__text'>Explore</span> </div></li>
+
+                        <NavLink to={"/explore"} style={styleActiveNav}>
+                            <li> <div> <FontAwesomeIcon icon={faHashtag}></FontAwesomeIcon> <span className='link__text'>Explore</span> </div></li>
+                        </NavLink>
+
                         <li> <div> <FontAwesomeIcon icon={faBookmark}></FontAwesomeIcon> <span className='link__text'>Bookmarks</span> </div></li>
                         <li> <div> <FontAwesomeIcon icon={faBell}></FontAwesomeIcon> <span className='link__text'>Notification</span> </div></li>
                         <li> <div> <FontAwesomeIcon icon={faUser}></FontAwesomeIcon> <span className='link__text'>Profile</span> </div></li>
