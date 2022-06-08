@@ -5,7 +5,8 @@ import {
   ExplorePage,
   HomePage,
   LandingPage,
-  NotificationPage
+  NotificationPage,
+  ProfilePage
 } from './pages';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route path='/explore' element={<ExplorePage />} />
         <Route path='/notificationPage' element={<NotificationPage />} />
         <Route path='/bookmarksPage' element={<BookmarksPage />} />
+        <Route path='/profile' element={<ProfilePage />} />
       </Routes>
     </>
   );

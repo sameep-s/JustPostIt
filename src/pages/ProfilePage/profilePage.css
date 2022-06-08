@@ -1,13 +1,16 @@
-.container__inner__bookmark{
+.container__inner__profilePage{
     width: 60rem;
     border-right: .1rem solid var(--dark);
     border-left: .1rem solid var(--dark);
 }
 
 
-.container__inner__bookmark .heading{
+.container__inner__profilePage .heading{
     font-size: 2rem;
+    cursor: pointer;
     font-weight: bold;
     font-family: var(--font-heading);
     border-bottom: .1rem solid var(--dark);
 }
+
+
