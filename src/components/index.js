@@ -4,6 +4,8 @@ import CreatePost from "./CreatePost/CreatePost";
 import PostContainer from "./PostContainer/PostContainer";
 import UserProfile from "./UserProfile/UserProfile";
 import PostReplyContainer from "./PostReply/PostReplyContainer";
+import PostOverlay from "./PostOverlay/PostOverlay";
+import PostReplyOverlay from "./PostReplyOverlay/PostReplyOverlay";
 
 export {
     RightSidebar,
@@ -12,4 +14,6 @@ export {
     CreatePost,
     UserProfile,
     PostReplyContainer,
+    PostReplyOverlay,
+    PostOverlay,
 }

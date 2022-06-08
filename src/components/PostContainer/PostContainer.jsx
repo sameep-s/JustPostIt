@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './postContainer.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faComment, faShareNodes, faHeart, faBookmark } from '@fortawesome/free-solid-svg-icons';
+import PostReplyOverlay from '../PostReplyOverlay/PostReplyOverlay';
 
 const PostContainer = () => {
+
+    const [replyOverlayIsOpen, setReplyOverlayIsOpen] = useState(false)
+
     return (
         <>
             <div className="post__container__main mt-2 mb-2 p-1 flex">
@@ -29,12 +33,15 @@ const PostContainer = () => {
 
                     <div className="user__post__actions flex jc-space-btw">
                         <FontAwesomeIcon icon={faHeart} />
-                        <FontAwesomeIcon icon={faComment} />
+                        <FontAwesomeIcon onClick={() => setReplyOverlayIsOpen(true)} icon={faComment} />
                         <FontAwesomeIcon icon={faShareNodes} />
                         <FontAwesomeIcon icon={faBookmark} />
                     </div>
                 </div>
 
+
+                {/* postReply overlay */}
+                <PostReplyOverlay {...{ replyOverlayIsOpen, setReplyOverlayIsOpen }} />
             </div>
         </>
     )

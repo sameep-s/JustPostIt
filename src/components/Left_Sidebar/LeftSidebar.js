@@ -3,7 +3,7 @@ import { faArrowRightFromBracket, faBell, faBookmark, faFeatherPointed, faHashta
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './leftSidebar.css';
 import { Link, NavLink } from 'react-router-dom';
-import CreatePost from '../CreatePost/CreatePost';
+import PostOverlay from '../PostOverlay/PostOverlay';
 
 
 const LeftSidebar = () => {
@@ -69,21 +69,8 @@ const LeftSidebar = () => {
                 </div>
             </aside>
 
-            <div
-                className="post__ovelay__container flex jc-center a-item-center pos-fix"
-                style={{
-                    display: postOverlayIsOpen ? "flex" : "none",
-                }}
-            >
-                <div className="container__main__createPost__overlay">
-                    <CreatePost />
-                </div>
-
-                <div
-                    onClick={() => setPostOverlayIsOpen(false)}
-                    className="post__overlay__visible pos-fix"
-                ></div>
-            </div>
+            {/* postoverlayContainer */}
+            <PostOverlay {...{ postOverlayIsOpen, setPostOverlayIsOpen }} />
         </>
     )
 }
