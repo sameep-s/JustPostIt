@@ -4,6 +4,7 @@ import ExplorePage from './ExplorePage/ExplorePage';
 import NotificationPage from './NotificationPage/NotificationPage';
 import BookmarksPage from './BookMarksPage/BookmarksPage';
 import ProfilePage from './ProfilePage/ProfilePage';
+import Post from './Post/Post';
 
 export {
     HomePage,
@@ -11,5 +12,6 @@ export {
     ExplorePage,
     NotificationPage,
     BookmarksPage,
-    ProfilePage
+    ProfilePage,
+    Post
 };

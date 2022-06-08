@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { faArrowRightFromBracket, faBell, faBookmark, faFeatherPointed, faHashtag, faHome, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './leftSidebar.css';
 import { Link, NavLink } from 'react-router-dom';
+import CreatePost from '../CreatePost/CreatePost';
 
 
 const LeftSidebar = () => {
 
+    const [postOverlayIsOpen, setPostOverlayIsOpen] = useState(false)
 
     function styleActiveNav({ isActive }) {
         return {
@@ -49,7 +51,12 @@ const LeftSidebar = () => {
                     </ul>
 
                 </div>
-                <button className="sidebar__action__buutton btn btn-primary">Post</button>
+                <button
+                    className="sidebar__action__buutton btn btn-primary"
+                    onClick={() => setPostOverlayIsOpen(!postOverlayIsOpen)}
+                >
+                    Post
+                </button>
 
                 <div className="profile__container flex a-item-center">
                     <img
@@ -61,6 +68,22 @@ const LeftSidebar = () => {
                     <span><FontAwesomeIcon icon={faArrowRightFromBracket} /></span>
                 </div>
             </aside>
+
+            <div
+                className="post__ovelay__container flex jc-center a-item-center pos-fix"
+                style={{
+                    display: postOverlayIsOpen ? "flex" : "none",
+                }}
+            >
+                <div className="container__main__createPost__overlay">
+                    <CreatePost />
+                </div>
+
+                <div
+                    onClick={() => setPostOverlayIsOpen(false)}
+                    className="post__overlay__visible pos-fix"
+                ></div>
+            </div>
         </>
     )
 }

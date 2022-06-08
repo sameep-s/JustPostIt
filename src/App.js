@@ -6,6 +6,7 @@ import {
   HomePage,
   LandingPage,
   NotificationPage,
+  Post,
   ProfilePage
 } from './pages';
 
@@ -19,6 +20,7 @@ function App() {
         <Route path='/notificationPage' element={<NotificationPage />} />
         <Route path='/bookmarksPage' element={<BookmarksPage />} />
         <Route path='/profile' element={<ProfilePage />} />
+        <Route path='/post' element={<Post />} />
       </Routes>
     </>
   );

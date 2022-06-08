@@ -1,0 +1,43 @@
+/* ------------------------post reply */
+
+.post__reply{
+    border: .1rem solid var(--dark);
+}
+.reply__to{
+    padding: 1rem;
+    font-size: 1.4rem;
+    color: gray;
+}
+
+.reply__to span{
+    color: var(--primary);
+    cursor: pointer;
+    line-height: 2rem;
+}
+
+.reply__info .user__img img{
+    border: .2rem solid var(--darker);
+    width: 100%;
+}
+
+.reply__text{
+    width: 100%;
+}
+
+.reply__text textarea{
+    margin-left: .5rem;
+    resize: none;
+    height: 8rem;
+    outline: none;
+    border: .1rem solid var(--dark);
+    width: 100%;
+}
+
+
+.reply_actions button{
+    margin: 0;
+    margin-left: auto;
+    padding: 0;
+    font-size: 1.6rem;
+    padding: 1rem 2rem;
+}

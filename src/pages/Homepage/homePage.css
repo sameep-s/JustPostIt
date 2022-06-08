@@ -11,3 +11,7 @@
     border-right: 1px solid var(--dark);
 }
 
+.container__feed__area{
+    border-top: 1px solid var(--dark);
+}
+

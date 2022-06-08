@@ -1,0 +1,14 @@
+.container__inner__post{
+    width: 60rem;
+    border-right: .1rem solid var(--dark);
+    border-left: .1rem solid var(--dark);
+}
+
+
+.container__inner__post .heading{
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: var(--font-heading);
+    border-bottom: .1rem solid var(--dark);
+}
+
