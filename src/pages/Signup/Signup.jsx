@@ -22,11 +22,12 @@ const Signup = () => {
         if (user) {
             navigate('/', { replace: true });
         }
+
     }, [user])
 
     const signupHandler = () => {
         const { email, password, confirmPassword, firstName, lastName, age } = signupFormData;
-        signupUser(email, password, confirmPassword, firstName, lastName, age)
+        signupUser(email, password, confirmPassword, firstName, lastName, age);
     }
 
 

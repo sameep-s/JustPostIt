@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import "./login.css";
 
@@ -7,6 +8,7 @@ const Login = () => {
     const [loginFormData, setLoginFormData] = useState({ email: "", password: "" });
     const navigate = useNavigate();
     const location = useLocation();
+    const dispatch = useDispatch()
 
     const user = null;
 
@@ -18,23 +20,23 @@ const Login = () => {
 
 
 
-    // const loginHandler = () => {
-    //     if (loginFormData.email && loginFormData.password === "") {
-    //         alert("Please Fill out form correctly");
-    //     }
+    const loginHandler = () => {
+        if (loginFormData.email && loginFormData.password === "") {
+            alert("Please Fill out form correctly");
+        }
 
-    //     loginUser(loginFormData.email, loginFormData.password);
-    //     if (user) {
-    //         navigate("/", { replace: true });
-    //     }
+        loginUser(loginFormData.email, loginFormData.password);
+        if (user) {
+            navigate("/", { replace: true });
+        }
 
-    //     setLoginFormData(() => ({ email: "", password: "" }));
-    // }
+        setLoginFormData(() => ({ email: "", password: "" }));
+    }
 
-    // const testLoginHandler = () => {
-    //     loginUser("sameep@gmail.com", "p123");
-    //     setLoginFormData(() => ({ email: "", password: "" }));
-    // }
+    const testLoginHandler = () => {
+        loginUser("sameep@gmail.com", "p123");
+        setLoginFormData(() => ({ email: "", password: "" }));
+    }
 
     return (
         <>
