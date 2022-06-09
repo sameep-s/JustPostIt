@@ -1,33 +1,51 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
+import { signupUser } from '../../features/authSlice';
 import './signup.css';
 
 const Signup = () => {
 
     const [signupFormData, setSignupFormData] = useState({
         email: "",
+        username: "",
         password: "",
         confirmPassword: "",
         firstName: "",
         lastName: "",
         age: ""
-    })
+    });
 
     const navigate = useNavigate();
+    const authState = useSelector((state) => state.auth);
+    const dispatch = useDispatch();
 
-    const user = null;
+    const { isLoggedIn } = authState;
 
 
     useEffect(() => {
-        if (user) {
+        if (isLoggedIn) {
+            console.log(isLoggedIn);
             navigate('/', { replace: true });
         }
 
-    }, [user])
+    }, [isLoggedIn])
 
-    const signupHandler = () => {
-        const { email, password, confirmPassword, firstName, lastName, age } = signupFormData;
-        signupUser(email, password, confirmPassword, firstName, lastName, age);
+    const signupHandler = (e) => {
+        e.preventDefault();
+
+        const { email, username, password, confirmPassword, firstName, lastName, age } = signupFormData;
+        dispatch(signupUser(email, username, password, confirmPassword, firstName, lastName, age));
+
+        setSignupFormData({
+            email: "",
+            username: "",
+            password: "",
+            confirmPassword: "",
+            firstName: "",
+            lastName: "",
+            age: ""
+        });
     }
 
 
@@ -37,14 +55,14 @@ const Signup = () => {
             <main className="container__main__signup">
                 <form onSubmit={(e) => {
                     e.preventDefault();
-                    signupHandler();
+                    signupHandler(e);
                 }}
                     className="form-wrapper"
                 >
                     <div className="form-heading">Sign Up</div>
                     <div className="form-body">
                         <input
-                            type="text"
+                            type="email"
                             name=""
                             value={signupFormData.email}
                             onChange={(e) => setSignupFormData(() => ({ ...signupFormData, email: e.target.value }))}
@@ -52,6 +70,17 @@ const Signup = () => {
                             className="form-input mt-4"
                             autoComplete="off"
                             placeholder="Email Adderess"
+                        />
+
+                        <input
+                            type="text"
+                            name=""
+                            value={signupFormData.username}
+                            onChange={(e) => setSignupFormData(() => ({ ...signupFormData, username: e.target.value }))}
+                            id="username"
+                            className="form-input mt-2"
+                            autoComplete="off"
+                            placeholder="username"
                         />
 
                         <input
@@ -125,7 +154,7 @@ const Signup = () => {
                     </div>
 
                     <div className="from-button mt-3">
-                        <button onClick={() => signupHandler()} className="btn-sq btn-light">Join Us</button>
+                        <button onClick={(e) => signupHandler(e)} className="btn-sq btn-light">Join Us</button>
                     </div>
 
                     <div className="form-end form-utility mt-1">

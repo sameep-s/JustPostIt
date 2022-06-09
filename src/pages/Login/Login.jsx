@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { loginUser } from '../../features/authSlice';
@@ -11,24 +12,27 @@ const Login = () => {
     const location = useLocation();
 
     const dispatch = useDispatch();
-    const user = null;
+    const authState = useSelector((state) => state.auth);
+
+
+    const { isLoggedIn } = authState;
 
     useEffect(() => {
-        if (user) {
+        if (isLoggedIn) {
             navigate(location?.state?.from || '/home', { replace: true });
         }
-    }, [user]);
+    }, [isLoggedIn]);
 
 
 
     const loginHandler = () => {
-        if (loginFormData.email && loginFormData.password === "") {
+        if (loginFormData.username && loginFormData.password === "") {
             alert("Please Fill out form correctly");
         }
 
-        dispatch(loginUser(loginFormData.email, loginFormData.password));
+        dispatch(loginUser(loginFormData.username, loginFormData.password));
 
-        if (user) {
+        if (isLoggedIn) {
             navigate("/", { replace: true });
         }
 
@@ -37,9 +41,12 @@ const Login = () => {
 
     const testLoginHandler = () => {
 
-        dispatch(loginUser("sameep@gmail.com", "p123"));
+        dispatch(loginUser({ username: "sameep", password: "p123" }))
         setLoginFormData(() => ({ email: "", password: "" }));
     }
+
+    console.log('state', isLoggedIn);
+
 
     return (
         <>
@@ -61,7 +68,7 @@ const Login = () => {
                             name=""
                             id="email"
                             className="form-input mt-1"
-                            value={loginFormData.email}
+                            value={loginFormData.username}
                             autoComplete="off"
                             onChange={(e) => {
                                 setLoginFormData(() => ({ ...loginFormData, email: e.target.value }))
