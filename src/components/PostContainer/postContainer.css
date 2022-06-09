@@ -11,6 +11,10 @@
     background-color: var(--dark-shade);
 }
 
+.user__post__body{
+    width: 100%;
+}
+
 .user__name__post{
     font-weight: bold;
     font-family: var(--font-heading);

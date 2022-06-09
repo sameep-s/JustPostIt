@@ -4,9 +4,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faComment, faShareNodes, faHeart, faBookmark } from '@fortawesome/free-solid-svg-icons';
 import PostReplyOverlay from '../PostReplyOverlay/PostReplyOverlay';
 
-const PostContainer = () => {
+const PostContainer = (post) => {
 
     const [replyOverlayIsOpen, setReplyOverlayIsOpen] = useState(false)
+    console.log(post);
+
+    const placeholderImage = "https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png";
 
     return (
         <>
@@ -14,21 +17,19 @@ const PostContainer = () => {
                 <div className="user__avatar">
                     <img
                         className='avatar'
-                        src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"
+                        src={post.userImage || placeholderImage}
                         alt="user__avatar"
                     />
                 </div>
 
                 <div className="user__post__body">
                     <div className="post__body__userInfo">
-                        <span className="user__name__post">Sameep Sharma</span>
-                        <span className="user__id__post txt-gray ml-1">@_sameep_</span>
+                        <span className="user__name__post">{post.userFirstName} {post.userLastName}</span>
+                        <span className="user__id__post txt-gray ml-1">@{post.username}</span>
                     </div>
 
-                    <div className="post__body__content">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Error saepe tempora impedit dolorum aperiam, perferendis iusto repellendus corporis
-
-                        illo inventore, sequi beatae libero, nulla magnam.
+                    <div className="post__body__content  mb-2">
+                        {post.content}
                     </div>
 
                     <div className="user__post__actions flex jc-space-btw">

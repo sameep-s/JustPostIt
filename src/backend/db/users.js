@@ -38,7 +38,7 @@ export const users = [
   {
     _id: uuid(),
     firstName: "Elongated",
-    lastName: "Musked",
+    lastName: "Musket",
     displayImage: "https://res.cloudinary.com/sameep1/image/upload/v1654805501/project_socialMedia/man_1_ezefji.png",
     username: "tothemoon",
     email: "musk@gmail.com",
