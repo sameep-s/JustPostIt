@@ -7,6 +7,7 @@ import PostReplyContainer from "./PostReply/PostReplyContainer";
 import PostOverlay from "./PostOverlay/PostOverlay";
 import PostReplyOverlay from "./PostReplyOverlay/PostReplyOverlay";
 import LogoutOverlay from "./LogoutOverlay/LogoutOverlay";
+import { RequireAuth } from "./PrivateRoutes/RequireAuth";
 
 export {
     RightSidebar,
@@ -17,5 +18,6 @@ export {
     PostReplyContainer,
     PostReplyOverlay,
     PostOverlay,
-    LogoutOverlay
+    LogoutOverlay,
+    RequireAuth
 }

@@ -15,13 +15,13 @@ const Login = () => {
     const authState = useSelector((state) => state.auth);
 
 
-    const { isLoggedIn } = authState;
+    const { encodedToken } = authState;
 
     useEffect(() => {
-        if (isLoggedIn) {
+        if (encodedToken) {
             navigate(location?.state?.from || '/home', { replace: true });
         }
-    }, [isLoggedIn]);
+    }, [encodedToken]);
 
 
 
@@ -45,7 +45,7 @@ const Login = () => {
         setLoginFormData(() => ({ email: "", password: "" }));
     }
 
-    console.log('state', isLoggedIn);
+    console.log('state', encodedToken);
 
 
     return (

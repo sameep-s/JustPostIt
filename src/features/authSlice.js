@@ -39,8 +39,8 @@ export const signupUser = createAsyncThunk('auth/signup', async ({ email, userna
 
 
 const initialState = {
-    encodedToken: null,
-    user: null,
+    encodedToken: localStorage.getItem('tokenSocial'),
+    user: localStorage.getItem("userSocial"),
     isLoggedIn: false,
 }
 
