@@ -16,7 +16,6 @@
 }
 
 .reply__info .user__img img{
-    border: .2rem solid var(--darker);
     width: 100%;
 }
 

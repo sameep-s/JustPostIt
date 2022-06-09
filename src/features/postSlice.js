@@ -8,7 +8,6 @@ export const getAllPosts = createAsyncThunk('/posts', async () => {
     try {
         const { data } = await axios.get('/api/posts');
 
-        console.log(`data`, data);
         return data;
     }
     catch (e) {
