@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './landingPage.css';
 
 const LandingPage = () => {
@@ -20,7 +21,9 @@ const LandingPage = () => {
                             See What's Happening around you.
                         </div>
 
-                        <button className='btn btn-primary'>Login</button>
+                        <Link to='/login'>
+                            <button className='btn btn-primary'>Login</button>
+                        </Link>
                     </div>
                 </div>
             </main>

@@ -5,9 +5,11 @@ import {
   ExplorePage,
   HomePage,
   LandingPage,
+  Login,
   NotificationPage,
   Post,
-  ProfilePage
+  ProfilePage,
+  Signup
 } from './pages';
 
 function App() {
@@ -15,6 +17,9 @@ function App() {
     <>
       <Routes>
         <Route path='/' element={<LandingPage />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/signup' element={<Signup />} />
+
         <Route path='/home' element={<HomePage />} />
         <Route path='/explore' element={<ExplorePage />} />
         <Route path='/notificationPage' element={<NotificationPage />} />
