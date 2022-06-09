@@ -5,6 +5,8 @@ import NotificationPage from './NotificationPage/NotificationPage';
 import BookmarksPage from './BookMarksPage/BookmarksPage';
 import ProfilePage from './ProfilePage/ProfilePage';
 import Post from './Post/Post';
+import Login from './Login/Login';
+import Signup from './Signup/Signup';
 
 export {
     HomePage,
@@ -13,5 +15,7 @@ export {
     NotificationPage,
     BookmarksPage,
     ProfilePage,
-    Post
+    Post,
+    Login,
+    Signup
 };

@@ -4,11 +4,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './leftSidebar.css';
 import { Link, NavLink } from 'react-router-dom';
 import PostOverlay from '../PostOverlay/PostOverlay';
+import LogoutOverlay from '../LogoutOverlay/LogoutOverlay';
 
 
 const LeftSidebar = () => {
 
-    const [postOverlayIsOpen, setPostOverlayIsOpen] = useState(false)
+    const [postOverlayIsOpen, setPostOverlayIsOpen] = useState(false);
+    const [logoutOverlayIsOpen, setLogoutOverlayIsOpen] = useState(false);
 
     function styleActiveNav({ isActive }) {
         return {
@@ -65,12 +67,13 @@ const LeftSidebar = () => {
                         alt="user__avatar"
                     />
                     <div className="user__name">SAMEEP</div>
-                    <span><FontAwesomeIcon icon={faArrowRightFromBracket} /></span>
+                    <span><FontAwesomeIcon onClick={() => setLogoutOverlayIsOpen(true)} icon={faArrowRightFromBracket} /></span>
                 </div>
             </aside>
 
             {/* postoverlayContainer */}
             <PostOverlay {...{ postOverlayIsOpen, setPostOverlayIsOpen }} />
+            <LogoutOverlay {...{ logoutOverlayIsOpen, setLogoutOverlayIsOpen }} />
         </>
     )
 }

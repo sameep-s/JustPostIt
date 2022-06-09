@@ -1,13 +1,16 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
+import { RequireAuth } from './components';
 import {
   BookmarksPage,
   ExplorePage,
   HomePage,
   LandingPage,
+  Login,
   NotificationPage,
   Post,
-  ProfilePage
+  ProfilePage,
+  Signup
 } from './pages';
 
 function App() {
@@ -15,12 +18,15 @@ function App() {
     <>
       <Routes>
         <Route path='/' element={<LandingPage />} />
-        <Route path='/home' element={<HomePage />} />
-        <Route path='/explore' element={<ExplorePage />} />
-        <Route path='/notificationPage' element={<NotificationPage />} />
-        <Route path='/bookmarksPage' element={<BookmarksPage />} />
-        <Route path='/profile' element={<ProfilePage />} />
-        <Route path='/post' element={<Post />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/signup' element={<Signup />} />
+
+        <Route path='/home' element={<RequireAuth> <HomePage /></RequireAuth>} />
+        <Route path='/explore' element={<RequireAuth> <ExplorePage /></RequireAuth>} />
+        <Route path='/notificationPage' element={<RequireAuth> <NotificationPage /></RequireAuth>} />
+        <Route path='/bookmarksPage' element={<RequireAuth> <BookmarksPage /></RequireAuth>} />
+        <Route path='/profile' element={<RequireAuth> <ProfilePage /></RequireAuth>} />
+        <Route path='/post' element={<RequireAuth> <Post /></RequireAuth>} />
       </Routes>
     </>
   );
