@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { loginUser } from '../../features/authSlice';
 import "./login.css";
 
 const Login = () => {
@@ -8,8 +9,8 @@ const Login = () => {
     const [loginFormData, setLoginFormData] = useState({ email: "", password: "" });
     const navigate = useNavigate();
     const location = useLocation();
-    const dispatch = useDispatch()
 
+    const dispatch = useDispatch();
     const user = null;
 
     useEffect(() => {
@@ -25,7 +26,8 @@ const Login = () => {
             alert("Please Fill out form correctly");
         }
 
-        loginUser(loginFormData.email, loginFormData.password);
+        dispatch(loginUser(loginFormData.email, loginFormData.password));
+
         if (user) {
             navigate("/", { replace: true });
         }
@@ -34,7 +36,8 @@ const Login = () => {
     }
 
     const testLoginHandler = () => {
-        loginUser("sameep@gmail.com", "p123");
+
+        dispatch(loginUser("sameep@gmail.com", "p123"));
         setLoginFormData(() => ({ email: "", password: "" }));
     }
 
