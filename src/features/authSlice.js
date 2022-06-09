@@ -51,7 +51,11 @@ export const authSlice = createSlice({
         logout: (state) => {
             localStorage.removeItem('tokenSocial');
             localStorage.removeItem('userSocial');
-            state = initialState;
+            state = {
+                encodedToken: null,
+                user: null,
+                isLoggedIn: false,
+            };
 
             return state;
         }
@@ -59,7 +63,7 @@ export const authSlice = createSlice({
     extraReducers: {
         [loginUser.fulfilled]: (state, action) => {
             localStorage.setItem('tokenSocial', action.payload.encodedToken);
-            localStorage.setItem('userSocial', action.payload.foundUser);
+            localStorage.setItem('userSocial', JSON.stringify(action.payload.foundUser));
             state.encodedToken = localStorage.getItem('tokenSocial')
             state.user = localStorage.getItem("userSocial");
             state.isLoggedIn = true;
@@ -68,7 +72,7 @@ export const authSlice = createSlice({
         [signupUser.fulfilled]: (state, action) => {
 
             localStorage.setItem('tokenSocial', action.payload.encodedToken);
-            localStorage.setItem('userSocial', action.payload.createdUser);
+            localStorage.setItem('userSocial', JSON.stringify(action.payload.createdUser));
             state.encodedToken = localStorage.getItem('tokenSocial')
             state.user = localStorage.getItem("userSocial");
             state.isLoggedIn = true;

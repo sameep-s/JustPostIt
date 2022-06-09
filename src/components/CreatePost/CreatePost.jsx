@@ -4,13 +4,17 @@ import { faImage } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const CreatePost = () => {
+
+    const placeholderImage = "https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png";
+    const user = JSON.parse(localStorage.getItem('userSocial'));
+
     return (
         <>
             <div className="user__post__add__conatainer flex">
                 <div className="user__avatar">
                     <img
                         className='avatar'
-                        src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"
+                        src={user.displayImage || placeholderImage}
                         alt="user__avatar"
                     />
                 </div>

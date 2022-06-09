@@ -9,6 +9,10 @@
     width: 100%;
 }
 
+.user__avatar img{
+    object-fit: scale-down;
+}
+
 .post__textarea {
     width: 100%;
     outline: none;

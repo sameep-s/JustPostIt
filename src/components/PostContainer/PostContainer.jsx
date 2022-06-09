@@ -7,7 +7,6 @@ import PostReplyOverlay from '../PostReplyOverlay/PostReplyOverlay';
 const PostContainer = (post) => {
 
     const [replyOverlayIsOpen, setReplyOverlayIsOpen] = useState(false)
-    console.log(post);
 
     const placeholderImage = "https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png";
 

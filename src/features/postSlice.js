@@ -16,7 +16,28 @@ export const getAllPosts = createAsyncThunk('/posts', async () => {
     }
 });
 
-export const gp = createAsyncThunk
+export const getUserPost = createAsyncThunk('/post/user', async (userName) => {
+    try {
+        const { data } = await axios.get(`/api/posts/user/${userName}`);
+
+        return data;
+    }
+    catch (e) {
+        console.error(e);
+    }
+})
+
+
+export const createPost = createAsyncThunk('/post/create', async (encodedToken, post) => {
+    const { data } = await axios.post('/api/posts', {
+        headers: {
+            authorization: encodedToken
+        }
+    });
+
+    console.log(data);
+    return data;
+})
 
 
 const initialState = {
@@ -32,6 +53,11 @@ const postSlice = createSlice({
             state = action.payload;
 
             return state;
+        },
+        [createPost.fulfilled]: (state, action) => {
+            state = action.payload;
+
+            return state
         }
     }
 
