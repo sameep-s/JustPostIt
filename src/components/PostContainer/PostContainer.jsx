@@ -4,11 +4,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faComment, faShareNodes, faHeart, faBookmark, faEllipsisVertical } from '@fortawesome/free-solid-svg-icons';
 import PostReplyOverlay from '../PostReplyOverlay/PostReplyOverlay';
 import PostOptionsOverlay from '../PostOptionsOverlay/PostOptionsOverlay';
+import PostEditModal from '../PostEditModal/PostEditModal';
 
 const PostContainer = (post) => {
 
     const [replyOverlayIsOpen, setReplyOverlayIsOpen] = useState(false);
     const [postOptionsIsOpen, setPostOptionsIsOpen] = useState(false);
+    const [editOverlayIsOpen, setEditOverlayIsOpen] = useState(false)
+
 
     const placeholderImage = "https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png";
 
@@ -33,13 +36,15 @@ const PostContainer = (post) => {
 
                         <div
                             className="icon__options pos-rel"
-                            onClick={() => setPostOptionsIsOpen(!postOptionsIsOpen)}
                             style={{ display: post.username === user.username ? "block" : "none" }}
                         >
-                            <FontAwesomeIcon icon={faEllipsisVertical} />
+                            <FontAwesomeIcon
+                                onClick={() => setPostOptionsIsOpen(!postOptionsIsOpen)}
+                                icon={faEllipsisVertical}
+                            />
 
                             <div className="">
-                                {postOptionsIsOpen && <PostOptionsOverlay {...{ setPostOptionsIsOpen, }} postId={post._id} />}
+                                {postOptionsIsOpen && <PostOptionsOverlay {...{ setPostOptionsIsOpen, setEditOverlayIsOpen, editOverlayIsOpen }} postId={post._id} />}
                             </div>
                         </div>
 
@@ -60,6 +65,8 @@ const PostContainer = (post) => {
 
                 {/* postReply overlay */}
                 <PostReplyOverlay {...{ replyOverlayIsOpen, setReplyOverlayIsOpen }} />
+                <PostEditModal {...{ editOverlayIsOpen, setEditOverlayIsOpen }} />
+
             </div>
         </>
     )

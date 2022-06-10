@@ -1,6 +1,6 @@
 /* ---------------------------------------post overlay container */
 
-.post__ovelay__container{
+.postEdit__ovelay__container{
     top: 0;
     left: 0;
     width: 100vw;
@@ -16,7 +16,7 @@
     border-radius: 2rem;
 }
 
-.post__overlay__visible{
+.postEdit__overlay__visible{
     background-color: var(--dark);
     filter: brightness(20%);
     top: 0;

@@ -9,6 +9,7 @@ import PostReplyOverlay from "./PostReplyOverlay/PostReplyOverlay";
 import LogoutOverlay from "./LogoutOverlay/LogoutOverlay";
 import { RequireAuth } from "./PrivateRoutes/RequireAuth";
 import PostOptionsOverlay from "./PostOptionsOverlay/PostOptionsOverlay";
+import PostEditModal from "./PostEditModal/PostEditModal";
 
 export {
     RightSidebar,
@@ -21,5 +22,6 @@ export {
     PostOverlay,
     LogoutOverlay,
     RequireAuth,
-    PostOptionsOverlay
+    PostOptionsOverlay,
+    PostEditModal
 }
