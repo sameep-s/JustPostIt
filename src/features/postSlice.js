@@ -105,7 +105,6 @@ export const likePost = createAsyncThunk('/post/like', async (postId) => {
             }
         });
 
-        console.log(data);
         return data;
 
     } catch (e) {
@@ -122,7 +121,6 @@ export const dislikePost = createAsyncThunk('/post/dislike', async (postId) => {
             }
         });
 
-        console.log(data);
         return data;
     }
     catch (e) {

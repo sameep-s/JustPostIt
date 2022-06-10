@@ -1,8 +1,9 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
+const encodedToken = localStorage.getItem('tokenSocial');
 
-export const getBookmarks = createAsyncThunk('/bookmark', async ({ encodedToken }) => {
+export const getBookmarks = createAsyncThunk('/bookmark', async () => {
     try {
         const { data: { bookmarks } } = await axios.get('/api/users/bookmark/', {
             headers: {
@@ -18,9 +19,10 @@ export const getBookmarks = createAsyncThunk('/bookmark', async ({ encodedToken 
     }
 })
 
-export const addBookmark = createAsyncThunk('/bookmark/add', async ({ encodedToken, postId }) => {
+export const addBookmark = createAsyncThunk('/bookmark/add', async (postId) => {
     try {
-        const { data: { bookmarks } } = await axios.post(`/api/users/bookmark/${postId}`, {
+        const { data: { bookmarks } } = await axios.post(`/api/users/bookmark/${postId}`,
+            {}, {
             headers: {
                 authorization: encodedToken,
             }
@@ -34,9 +36,10 @@ export const addBookmark = createAsyncThunk('/bookmark/add', async ({ encodedTok
 })
 
 
-export const removeBookmark = createAsyncThunk('/bookmark/remove', async ({ encodedToken, postId }) => {
+export const removeBookmark = createAsyncThunk('/bookmark/remove', async ({ postId }) => {
     try {
-        const { data: { bookmarks } } = await axios.post(`/api/users/remove-bookmark/${postId}`, {
+        const { data: { bookmarks } } = await axios.post(`/api/users/remove-bookmark/${postId}`,
+            {}, {
             headers: {
                 authorization: encodedToken,
             }
