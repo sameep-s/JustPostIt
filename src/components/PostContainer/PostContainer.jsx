@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
 import './postContainer.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faComment, faShareNodes, faHeart, faBookmark } from '@fortawesome/free-solid-svg-icons';
+import { faComment, faShareNodes, faHeart, faBookmark, faEllipsisVertical } from '@fortawesome/free-solid-svg-icons';
 import PostReplyOverlay from '../PostReplyOverlay/PostReplyOverlay';
+import PostOptionsOverlay from '../PostOptionsOverlay/PostOptionsOverlay';
 
 const PostContainer = (post) => {
 
-    const [replyOverlayIsOpen, setReplyOverlayIsOpen] = useState(false)
+    const [replyOverlayIsOpen, setReplyOverlayIsOpen] = useState(false);
+    const [postOptionsIsOpen, setPostOptionsIsOpen] = useState(false);
 
     const placeholderImage = "https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png";
+
+    const user = JSON.parse(localStorage.getItem('userSocial'));
 
 
     return (
@@ -23,9 +27,22 @@ const PostContainer = (post) => {
                 </div>
 
                 <div className="user__post__body">
-                    <div className="post__body__userInfo">
+                    <div className="post__body__userInfo flex">
                         <span className="user__name__post">{post.userFirstName} {post.userLastName}</span>
                         <span className="user__id__post txt-gray ml-1">@{post.username}</span>
+
+                        <div
+                            className="icon__options"
+                            onClick={() => setPostOptionsIsOpen(!postOptionsIsOpen)}
+                            style={{ display: post.username === user.username ? "block" : "none" }}
+                        >
+                            <FontAwesomeIcon icon={faEllipsisVertical} />
+
+                            <div className="pos-rel">
+                                {postOptionsIsOpen && <PostOptionsOverlay {...{ setPostOptionsIsOpen }} />}
+                            </div>
+                        </div>
+
                     </div>
 
                     <div className="post__body__content  mb-2">

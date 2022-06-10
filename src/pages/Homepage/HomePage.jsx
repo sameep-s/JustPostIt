@@ -10,6 +10,8 @@ const HomePage = () => {
     const postState = useSelector((state) => state.post);
     const { posts } = postState;
 
+    console.log(posts);
+
 
     useEffect(() => {
         dispatch(getAllPosts());
@@ -30,11 +32,11 @@ const HomePage = () => {
                                     <div className="h-3 txt-center txt-gray">
                                         Feed Empty
                                     </div> :
-                                    posts?.map((post) => <PostContainer key={post._id} {...post} />)
+                                    [...posts].reverse().map((post) => <PostContainer key={post._id} {...post} />)
                             }
                         </div>
                     </div>
-                    <RightSidebar />
+                    {/* <RightSidebar /> */}
                 </main>
             </div >
         </>

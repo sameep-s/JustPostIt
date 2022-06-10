@@ -1,0 +1,51 @@
+/* ----------------------------------------------------------------color container */
+
+
+.colorPalette{
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    border: 1px solid black;
+    background-color: whitesmoke;
+    cursor: pointer;
+}
+
+.optionsModal{
+    top: -9rem;
+    left: -9rem;
+    width: 10rem;
+    height: 12rem;
+    border-radius: 1rem;
+    flex-wrap: wrap;
+    overflow: auto;
+    background-color: white;
+    border: .1rem solid var(--dark);
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+    z-index: 4;
+}
+
+.optionsModal .option{
+    /* background-color: aliceblue; */
+    width: 100%;
+    display: flex;
+    font-size: 1.4rem;
+    padding: 0;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+    transition: 260ms;
+}
+
+.optionsModal .option:hover{
+    background-color: var(--primary-shade);
+}
+
+
+.colorPaletteOverlay{
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    cursor: pointer;
+}
