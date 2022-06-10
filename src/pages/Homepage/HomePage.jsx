@@ -11,6 +11,7 @@ const HomePage = () => {
     const { posts } = postState;
 
 
+
     useEffect(() => {
         dispatch(getAllPosts());
 

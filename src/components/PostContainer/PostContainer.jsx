@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './postContainer.css';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faComment, faShareNodes, faHeart, faBookmark, faEllipsisVertical } from '@fortawesome/free-solid-svg-icons';
 import PostReplyOverlay from '../PostReplyOverlay/PostReplyOverlay';
@@ -19,7 +20,6 @@ const PostContainer = ({ post }) => {
     const [postOptionsIsOpen, setPostOptionsIsOpen] = useState(false);
     const [editOverlayIsOpen, setEditOverlayIsOpen] = useState(false)
     const [liked, setLiked] = useState(false);
-    const [bookmarked, setBookMarked] = useState(false);
 
 
     const dispatch = useDispatch();
@@ -27,12 +27,12 @@ const PostContainer = ({ post }) => {
 
 
     function isPresentInBookmarks() {
-        return bookmarks.filter((item) => item._id === postId).length !== 0
+        return bookmarks?.filter((item) => item._id === postId).length !== 0
     }
 
 
     function likeDislikeHandler() {
-        if (isPresentInBookmarks()) {
+        if (liked) {
             setLiked(false);
             dispatch(dislikePost(postId))
         } else {
@@ -43,13 +43,12 @@ const PostContainer = ({ post }) => {
     }
 
     function bookmarkHandler() {
-        if (bookmarked) {
-            setBookMarked(false);
+        if (isPresentInBookmarks()) {
             dispatch(removeBookmark(postId));
         } else {
-            setBookMarked(true)
             dispatch(addBookmark(postId));
         }
+
     }
 
     return (

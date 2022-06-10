@@ -6,7 +6,7 @@ import './bookmarkPage.css';
 
 const BookmarksPage = () => {
 
-    const bookmarksState = useSelector((state) => state.bookmark);
+    const bookmarksState = useSelector((state) => state.bookmarks);
     const authState = useSelector((state) => state.auth);
     const dispatch = useDispatch();
 
