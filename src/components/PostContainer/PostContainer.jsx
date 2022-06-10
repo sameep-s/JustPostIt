@@ -65,8 +65,7 @@ const PostContainer = (post) => {
 
                 {/* postReply overlay */}
                 <PostReplyOverlay {...{ replyOverlayIsOpen, setReplyOverlayIsOpen }} />
-                <PostEditModal {...{ editOverlayIsOpen, setEditOverlayIsOpen }} />
-
+                <PostEditModal {...{ editOverlayIsOpen, setEditOverlayIsOpen, post }} />
             </div>
         </>
     )

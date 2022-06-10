@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import './createPost.css';
 import { faImage } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useDispatch, useSelector } from 'react-redux';
-import { createPost } from '../../features/postSlice';
+import { useDispatch } from 'react-redux';
+import { createPost, editPost } from '../../features/postSlice';
 
 
-const CreatePost = ({ setPostOverlayOpen, overlay, edit }) => {
+const CreatePost = ({ setPostOverlayOpen, setEditOverlayIsOpen, overlay, edit, post }) => {
 
     const dispatch = useDispatch();
 
@@ -15,7 +15,7 @@ const CreatePost = ({ setPostOverlayOpen, overlay, edit }) => {
 
 
     const initialPostData = {
-        content: edit ? "edit" : "",
+        content: edit ? post.content : "",
         username: user.username,
         displayImage: user.displayImage,
         userFirstName: user.firstName,
@@ -25,12 +25,21 @@ const CreatePost = ({ setPostOverlayOpen, overlay, edit }) => {
     const [postData, setPostData] = useState(initialPostData);
 
     function createPostHandler() {
-        console.log(`postData`, postData);
 
         dispatch(createPost(postData));
 
         overlay && setPostOverlayOpen(false);
         overlay && setPostData(initialPostData);
+
+        setPostData(initialPostData);
+    }
+
+    function editHandler() {
+        const postId = post._id
+        const { content, username, displayImage, userFirstName, userLastName } = postData
+
+        dispatch(editPost({ content, username, displayImage, userFirstName, userLastName, postId }));
+        setEditOverlayIsOpen(false);
 
         setPostData(initialPostData);
     }
@@ -50,7 +59,7 @@ const CreatePost = ({ setPostOverlayOpen, overlay, edit }) => {
                 <div className="user__action__contianer">
                     <textarea
                         className='post__textarea'
-                        placeholder="What's happening?"
+                        placeholder={edit ? "Enter Text To edit" : "What's happening?"}
                         value={postData.content}
                         onChange={(e) => setPostData({ ...postData, content: e.target.value })}
                     />
@@ -62,9 +71,9 @@ const CreatePost = ({ setPostOverlayOpen, overlay, edit }) => {
                         </div>
 
                         <button
-                            onClick={createPostHandler}
+                            onClick={edit ? editHandler : createPostHandler}
                             className="user__post__btn btn btn-primary">
-                            Post
+                            {edit ? "Edit" : "Post"}
                         </button>
                     </div>
                 </div>

@@ -65,9 +65,23 @@ export const deletePost = createAsyncThunk('/post/delete', async (postId) => {
 })
 
 
-export const editPost = createAsyncThunk('/post/edit', async (postId) => {
+export const editPost = createAsyncThunk('/post/edit', async ({ content, username, displayImage, userFirstName, userLastName, postId }) => {
+    console.log(userFirstName);
+    console.log(postId);
+
+    const postData = {
+        "content": content,
+        "username": username,
+        "displayImage": displayImage,
+        "userFirstName": userFirstName,
+        "userLastName": userLastName
+    }
+
     try {
-        const { data } = await axios.delete(`/api/posts/edit/${postId}`, {
+        const { data } = await axios.post(`/api/posts/edit/${postId}`,
+            {
+                postData
+            }, {
             headers: {
                 authorization: encodedToken
             }

@@ -2,7 +2,7 @@ import React from 'react';
 import CreatePost from '../CreatePost/CreatePost';
 import './postEditModal.css';
 
-const PostEditModal = ({ editOverlayIsOpen, setEditOverlayIsOpen }) => {
+const PostEditModal = ({ editOverlayIsOpen, setEditOverlayIsOpen, post }) => {
 
 
     return (
@@ -14,7 +14,7 @@ const PostEditModal = ({ editOverlayIsOpen, setEditOverlayIsOpen }) => {
                 }}
             >
                 <div className="container__main__createPost__overlay">
-                    <CreatePost setPostOverlayOpen={setEditOverlayIsOpen} overlay edit />
+                    <CreatePost setPostOverlayOpen={setEditOverlayIsOpen} setEditOverlayIsOpen={setEditOverlayIsOpen} overlay edit post={post} />
                 </div>
 
                 <div
