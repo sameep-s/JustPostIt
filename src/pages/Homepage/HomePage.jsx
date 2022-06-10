@@ -10,8 +10,6 @@ const HomePage = () => {
     const postState = useSelector((state) => state.post);
     const { posts } = postState;
 
-    console.log(posts);
-
 
     useEffect(() => {
         dispatch(getAllPosts());

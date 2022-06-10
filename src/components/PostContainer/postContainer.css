@@ -60,5 +60,9 @@
     color: var(--primary);
 }
 
+.liked{
+    color: red;
+}
+
 
 

@@ -5,7 +5,7 @@ import axios from "axios";
 const encodedToken = localStorage.getItem('tokenSocial');
 
 
-export const getAllPosts = createAsyncThunk('/posts', async () => {
+export const getAllPosts = createAsyncThunk('/post', async () => {
     try {
         const { data } = await axios.get('/api/posts');
 
@@ -96,12 +96,47 @@ export const editPost = createAsyncThunk('/post/edit', async ({ content, usernam
 })
 
 
+export const likePost = createAsyncThunk('/post/like', async (postId) => {
+    try {
+        const { data } = await axios.post(`/api/posts/like/${postId}`,
+            {}, {
+            headers: {
+                authorization: encodedToken
+            }
+        });
+
+        console.log(data);
+        return data;
+
+    } catch (e) {
+        console.error(e);
+    }
+});
+
+export const dislikePost = createAsyncThunk('/post/dislike', async (postId) => {
+    try {
+        const { data } = await axios.post(`/api/posts/dislike/${postId}`,
+            {}, {
+            headers: {
+                authorization: encodedToken
+            }
+        });
+
+        console.log(data);
+        return data;
+    }
+    catch (e) {
+        console.error(e);
+    }
+})
+
+
 const initialState = {
     posts: []
 }
 
 const postSlice = createSlice({
-    name: 'posts',
+    name: 'post',
     initialState,
     reducers: {},
     extraReducers: {
@@ -125,6 +160,20 @@ const postSlice = createSlice({
 
         [editPost.fulfilled]: (state, action) => {
             state = action.payload;
+
+            return state;
+        },
+
+        [likePost.fulfilled]: (state, action) => {
+            state = action.payload;
+            console.log(state);
+
+            return state;
+        },
+
+        [dislikePost.fulfilled]: (state, action) => {
+            state = action.payload;
+            console.log(state);
 
             return state;
         }
