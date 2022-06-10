@@ -41,7 +41,39 @@ export const createPost = createAsyncThunk('/post/create', async (post) => {
                 }
             });
 
-        console.log(data);
+        return data;
+
+    } catch (e) {
+        console.error(e)
+    }
+})
+
+
+export const deletePost = createAsyncThunk('/post/delete', async (postId) => {
+    try {
+        const { data } = await axios.delete(`/api/posts/${postId}`, {
+            headers: {
+                authorization: encodedToken
+            }
+        });
+
+        return data;
+
+    } catch (e) {
+        console.error(e)
+    }
+})
+
+
+export const editPost = createAsyncThunk('/post/edit', async (postId) => {
+    try {
+        const { data } = await axios.delete(`/api/posts/edit/${postId}`, {
+            headers: {
+                authorization: encodedToken
+            }
+        });
+
+        console.log(`edit`, data);
         return data;
 
     } catch (e) {
@@ -68,7 +100,19 @@ const postSlice = createSlice({
         [createPost.fulfilled]: (state, action) => {
             state = action.payload;
 
-            return state
+            return state;
+        },
+
+        [deletePost.fulfilled]: (state, action) => {
+            state = action.payload;
+
+            return state;
+        },
+
+        [editPost.fulfilled]: (state, action) => {
+            state = action.payload;
+
+            return state;
         }
     }
 

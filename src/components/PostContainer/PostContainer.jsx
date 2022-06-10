@@ -32,14 +32,14 @@ const PostContainer = (post) => {
                         <span className="user__id__post txt-gray ml-1">@{post.username}</span>
 
                         <div
-                            className="icon__options"
+                            className="icon__options pos-rel"
                             onClick={() => setPostOptionsIsOpen(!postOptionsIsOpen)}
                             style={{ display: post.username === user.username ? "block" : "none" }}
                         >
                             <FontAwesomeIcon icon={faEllipsisVertical} />
 
-                            <div className="pos-rel">
-                                {postOptionsIsOpen && <PostOptionsOverlay {...{ setPostOptionsIsOpen }} />}
+                            <div className="">
+                                {postOptionsIsOpen && <PostOptionsOverlay {...{ setPostOptionsIsOpen, }} postId={post._id} />}
                             </div>
                         </div>
 
