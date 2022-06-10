@@ -13,7 +13,7 @@ const PostReplyOverlay = ({ replyOverlayIsOpen, setReplyOverlayIsOpen }) => {
                 }}
             >
                 <div className="container__main__PostReply__overlay">
-                    <PostReplyContainer />
+                    <PostReplyContainer {...{ setReplyOverlayIsOpen }} />
                 </div>
 
                 <div

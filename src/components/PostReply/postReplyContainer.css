@@ -1,7 +1,7 @@
 /* ------------------------post reply */
 
 .post__reply{
-    border: .1rem solid var(--dark);
+    border-bottom: .1rem solid var(--dark);
 }
 .reply__to{
     padding: 1rem;

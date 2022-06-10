@@ -1,0 +1,30 @@
+/* ---------------------------------------------user list item */
+
+.user__list__item__container{
+    width: 100%;
+}
+
+.user__listItem__info__container .user__listItem__info .user__listItem__name{
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+
+.user__listItem__info__container{
+    width: 100%;
+}
+
+.user__listItem__info__container .user__listItem__info .user__listItem__userName{
+    font-size: 1.2rem;
+}
+
+
+.user__listItem__info__container button{
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0;
+    font-family: var(--font-heading);
+    margin-left: auto;
+}
+
+

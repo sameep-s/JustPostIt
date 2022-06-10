@@ -1,7 +1,7 @@
 import React from 'react';
 import './postReplyContainer.css';
 
-const PostReplyContainer = () => {
+const PostReplyContainer = ({ setReplyOverlayIsOpen }) => {
     return (
         <>
             <div className="post__reply m-1">
@@ -26,7 +26,7 @@ const PostReplyContainer = () => {
                         </div>
                     </div>
                     <div className="reply_actions flex p-1">
-                        <button className='btn btn-primary'>Reply</button>
+                        <button onClick={() => setReplyOverlayIsOpen(false)} className='btn btn-primary'>Reply</button>
                     </div>
                 </div>
             </div>

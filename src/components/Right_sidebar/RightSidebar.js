@@ -1,7 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllUsers } from '../../features/userSlice';
+import UserSuggestion from '../userSuggestion/UserSuggestion';
 import './rightSidebar.css'
 
 const RightSidebar = () => {
+
+    const dispatch = useDispatch();
+    const user = JSON.parse(localStorage.getItem('userSocial'));
+    const { users } = useSelector((state) => state.user);
+
+
+    useEffect(() => {
+        dispatch(getAllUsers());
+
+    }, []);
+
     return (
         <>
             <aside className='right__side__items pos-stick'>
@@ -15,29 +29,15 @@ const RightSidebar = () => {
                             <span>Who To Follow</span>
                         </div>
 
-                        <div className="user__list__item__container p-1">
-                            <div className="user__listItem flex">
-                                <div className="user__listItem__img">
-                                    <img
-                                        className='avatar'
-                                        src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"
-                                        alt="user__avatar"
-                                    />
-                                </div>
+                        {users?.users?.length === 0 ? <h1>No Users Here</h1>
+
+                            :
+                            users?.users?.map((item) => item.username === user.username || < UserSuggestion key={item.username} {...{ item }} />)
 
 
+                        }
 
-                                <div className="user__listItem__info__container flex">
-                                    <div className="user__listItem__info">
-                                        <div className="user__listItem__name">Sameep Sharma</div>
-                                        <div className="user__listItem__userName txt-gray">@_sameep_</div>
-                                    </div>
 
-                                    <button className='btn btn-primary'>Follow+</button>
-                                </div>
-
-                            </div>
-                        </div>
                     </div>
                 </div>
             </aside>

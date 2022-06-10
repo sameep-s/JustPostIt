@@ -17,7 +17,6 @@ const PostOptionsOverlay = ({ setPostOptionsIsOpen, setEditOverlayIsOpen, editOv
 
     function postEditHandler() {
         setEditOverlayIsOpen(true);
-        console.log(`handler`, editOverlayIsOpen);
         setPostOptionsIsOpen(false);
     }
 

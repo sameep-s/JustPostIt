@@ -25,7 +25,6 @@ const Signup = () => {
 
     useEffect(() => {
         if (isLoggedIn) {
-            console.log(isLoggedIn);
             navigate('/', { replace: true });
         }
 

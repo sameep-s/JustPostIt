@@ -45,7 +45,6 @@ const Login = () => {
         setLoginFormData(() => ({ email: "", password: "" }));
     }
 
-    console.log('state', encodedToken);
 
 
     return (

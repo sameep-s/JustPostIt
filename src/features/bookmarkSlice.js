@@ -11,7 +11,6 @@ export const getBookmarks = createAsyncThunk('/bookmark', async () => {
             }
         });
 
-        console.log(`data`, bookmarks);
         return bookmarks;
     }
     catch (e) {
@@ -43,7 +42,6 @@ export const removeBookmark = createAsyncThunk('/bookmark/remove', async (postId
                 authorization: encodedToken,
             }
         })
-        console.log(`bookmarks`, bookmarks);
         return bookmarks;
     }
     catch (e) {

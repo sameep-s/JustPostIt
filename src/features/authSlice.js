@@ -9,7 +9,6 @@ export const loginUser = createAsyncThunk('auth/login', async ({ username, passw
             password: password
         });
 
-        console.log(`success`, data);
         return data;
 
     } catch (e) {
@@ -29,7 +28,6 @@ export const signupUser = createAsyncThunk('auth/signup', async ({ email, userna
             age: age
         });
 
-        console.log(data);
         return data;
 
     } catch (e) {

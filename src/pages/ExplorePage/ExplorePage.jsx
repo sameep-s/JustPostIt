@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './explorePage.css';
-import { LeftSidebar, RightSidebar } from '../../components';
+import { LeftSidebar, PostContainer, RightSidebar } from '../../components';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllPosts } from '../../features/postSlice';
 
 const ExplorePage = () => {
+
+    const dispatch = useDispatch();
+    const postState = useSelector((state) => state.post);
+    const { posts } = postState;
+
+    useEffect(() => {
+
+        dispatch(getAllPosts());
+    }, []);
+
     return (
         <>
             <main className='container__main__explore flex jc-center'>
@@ -19,7 +31,7 @@ const ExplorePage = () => {
                             color: "black"
                         }}>
                             <div>
-                                For You
+                                All
                             </div>
                         </div>
 
@@ -44,7 +56,9 @@ const ExplorePage = () => {
 
                     <div className="explore__content__area p-2 flex flex-col a-item-center">
                         <span className='h-5 txt-gray'>
-                            Nothing here!!
+                            {posts?.length === 0 ? "Nothing here!!" :
+                                [...posts].map((post) => <PostContainer key={post._id} post={post} />)
+                            }
                         </span>
                     </div>
                 </div>

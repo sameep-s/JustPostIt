@@ -11,7 +11,7 @@ const Post = () => {
                     <div className='heading p-2'>Post</div>
 
                     <div className="post__area p-1 flex flex-col a-item-center jc-center">
-                        <PostContainer />
+                        {/* <PostContainer /> */}
                     </div>
 
                     {/* postReplyContainer */}

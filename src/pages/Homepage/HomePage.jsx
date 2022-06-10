@@ -10,8 +10,6 @@ const HomePage = () => {
     const postState = useSelector((state) => state.post);
     const { posts } = postState;
 
-
-
     useEffect(() => {
         dispatch(getAllPosts());
 
@@ -35,7 +33,7 @@ const HomePage = () => {
                             }
                         </div>
                     </div>
-                    {/* <RightSidebar /> */}
+                    <RightSidebar />
                 </main>
             </div >
         </>

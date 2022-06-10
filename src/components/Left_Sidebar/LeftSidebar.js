@@ -6,11 +6,14 @@ import { Link, NavLink } from 'react-router-dom';
 import PostOverlay from '../PostOverlay/PostOverlay';
 import LogoutOverlay from '../LogoutOverlay/LogoutOverlay';
 
+const placeholderImage = "https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png";
 
 const LeftSidebar = () => {
 
     const [postOverlayIsOpen, setPostOverlayIsOpen] = useState(false);
     const [logoutOverlayIsOpen, setLogoutOverlayIsOpen] = useState(false);
+
+    const user = JSON.parse(localStorage.getItem('userSocial'));
 
     function styleActiveNav({ isActive }) {
         return {
@@ -63,17 +66,16 @@ const LeftSidebar = () => {
                 <div className="profile__container flex a-item-center">
                     <img
                         className='avatar'
-                        src="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"
+                        src={user.displayImage || placeholderImage}
                         alt="user__avatar"
                     />
-                    <div className="user__name">SAMEEP</div>
+                    <div className="user__name">{user.firstName}</div>
                     <span><FontAwesomeIcon onClick={() => setLogoutOverlayIsOpen(true)} icon={faArrowRightFromBracket} /></span>
                 </div>
             </aside>
 
             {/* postoverlayContainer */}
             <PostOverlay postOverlayOpen={postOverlayIsOpen} setPostOverlayOpen={setPostOverlayIsOpen} />
-
             <LogoutOverlay {...{ logoutOverlayIsOpen, setLogoutOverlayIsOpen }} />
         </>
     )

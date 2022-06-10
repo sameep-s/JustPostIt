@@ -30,7 +30,6 @@ export const getUserPost = createAsyncThunk('/post/user', async (userName) => {
 
 export const createPost = createAsyncThunk('/post/create', async (post) => {
     try {
-        console.log(post);
         const { data } = await axios.post('/api/posts',
             {
                 ...post
@@ -66,8 +65,6 @@ export const deletePost = createAsyncThunk('/post/delete', async (postId) => {
 
 
 export const editPost = createAsyncThunk('/post/edit', async ({ content, username, displayImage, userFirstName, userLastName, postId }) => {
-    console.log(userFirstName);
-    console.log(postId);
 
     const postData = {
         "content": content,
@@ -87,7 +84,6 @@ export const editPost = createAsyncThunk('/post/edit', async ({ content, usernam
             }
         });
 
-        console.log(`edit`, data);
         return data;
 
     } catch (e) {

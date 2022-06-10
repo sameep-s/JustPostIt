@@ -70,6 +70,10 @@
     border: .1rem solid var(--dark);
 }
 
+.profile__container img{
+    object-fit: scale-down;
+}
+
 .profile__container span{
     margin-left: auto;
 }
