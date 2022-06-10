@@ -7,35 +7,48 @@ import PostOptionsOverlay from '../PostOptionsOverlay/PostOptionsOverlay';
 import PostEditModal from '../PostEditModal/PostEditModal';
 import { useDispatch, useSelector } from 'react-redux';
 import { dislikePost, likePost } from '../../features/postSlice';
+import { addBookmark, removeBookmark } from '../../features/bookmarkSlice';
 
 
-const PostContainer = (post) => {
+const PostContainer = ({ post }) => {
+    const placeholderImage = "https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png";
+    const user = JSON.parse(localStorage.getItem('userSocial'));
+    const postId = post._id;
 
     const [replyOverlayIsOpen, setReplyOverlayIsOpen] = useState(false);
     const [postOptionsIsOpen, setPostOptionsIsOpen] = useState(false);
     const [editOverlayIsOpen, setEditOverlayIsOpen] = useState(false)
-
     const [liked, setLiked] = useState(false);
+    const [bookmarked, setBookMarked] = useState(false);
+
 
     const dispatch = useDispatch();
+    const { bookmarks } = useSelector((state) => state.bookmarks);
 
-    const statePost = useSelector((state) => state.post);
-    console.log(`posts`, statePost.posts);
 
-    const placeholderImage = "https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png";
-
-    const user = JSON.parse(localStorage.getItem('userSocial'));
+    function isPresentInBookmarks() {
+        return bookmarks.filter((item) => item._id === postId).length !== 0
+    }
 
 
     function likeDislikeHandler() {
-        const postId = post._id;
-
-        if (liked) {
+        if (isPresentInBookmarks()) {
             setLiked(false);
             dispatch(dislikePost(postId))
         } else {
             dispatch(likePost(postId));
             setLiked(true)
+        }
+
+    }
+
+    function bookmarkHandler() {
+        if (bookmarked) {
+            setBookMarked(false);
+            dispatch(removeBookmark(postId));
+        } else {
+            setBookMarked(true)
+            dispatch(addBookmark(postId));
         }
     }
 
@@ -84,7 +97,7 @@ const PostContainer = (post) => {
 
                         <div className=""> <FontAwesomeIcon onClick={() => setReplyOverlayIsOpen(true)} icon={faComment} /></div>
                         <div className=""> <FontAwesomeIcon icon={faShareNodes} /></div>
-                        <div className=""> <FontAwesomeIcon icon={faBookmark} /></div>
+                        <div className={isPresentInBookmarks() ? "bookmarked" : ""}  > <FontAwesomeIcon onClick={bookmarkHandler} icon={faBookmark} /></div>
                     </div>
                 </div>
 

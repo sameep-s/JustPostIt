@@ -27,7 +27,6 @@ export const addBookmark = createAsyncThunk('/bookmark/add', async (postId) => {
                 authorization: encodedToken,
             }
         })
-        console.log(`data`, bookmarks);
         return bookmarks;
     }
     catch (e) {
@@ -36,7 +35,7 @@ export const addBookmark = createAsyncThunk('/bookmark/add', async (postId) => {
 })
 
 
-export const removeBookmark = createAsyncThunk('/bookmark/remove', async ({ postId }) => {
+export const removeBookmark = createAsyncThunk('/bookmark/remove', async (postId) => {
     try {
         const { data: { bookmarks } } = await axios.post(`/api/users/remove-bookmark/${postId}`,
             {}, {

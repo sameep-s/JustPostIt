@@ -30,7 +30,7 @@ const HomePage = () => {
                                     <div className="h-3 txt-center txt-gray">
                                         Feed Empty
                                     </div> :
-                                    [...posts].reverse().map((post) => <PostContainer key={post._id} {...post} />)
+                                    [...posts].reverse().map((post) => <PostContainer key={post._id} post={post} />)
                             }
                         </div>
                     </div>

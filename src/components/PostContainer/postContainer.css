@@ -64,5 +64,8 @@
     color: red;
 }
 
+.bookmarked{
+    color: var(--dark-primary);
+}
 
 
