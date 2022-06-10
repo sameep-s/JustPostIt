@@ -12,7 +12,6 @@ const BookmarksPage = () => {
 
     const { bookmarks } = bookmarksState;
     const { encodedToken } = authState;
-    console.log(`bookmarks`, bookmarks);
 
 
     useEffect(() => {

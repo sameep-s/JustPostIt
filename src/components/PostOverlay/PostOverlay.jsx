@@ -12,7 +12,7 @@ const PostOverlay = ({ postOverlayIsOpen, setPostOverlayIsOpen }) => {
                 }}
             >
                 <div className="container__main__createPost__overlay">
-                    <CreatePost />
+                    <CreatePost setPostOverlayIsOpen={setPostOverlayIsOpen} overlay />
                 </div>
 
                 <div

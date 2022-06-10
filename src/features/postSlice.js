@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
+const encodedToken = localStorage.getItem('tokenSocial');
 
 
 export const getAllPosts = createAsyncThunk('/posts', async () => {
@@ -27,15 +28,25 @@ export const getUserPost = createAsyncThunk('/post/user', async (userName) => {
 })
 
 
-export const createPost = createAsyncThunk('/post/create', async (encodedToken, post) => {
-    const { data } = await axios.post('/api/posts', {
-        headers: {
-            authorization: encodedToken
-        }
-    });
+export const createPost = createAsyncThunk('/post/create', async (post) => {
+    try {
+        console.log(post);
+        const { data } = await axios.post('/api/posts',
+            {
+                ...post
+            },
+            {
+                headers: {
+                    authorization: encodedToken
+                }
+            });
 
-    console.log(data);
-    return data;
+        console.log(data);
+        return data;
+
+    } catch (e) {
+        console.error(e)
+    }
 })
 
 
@@ -53,6 +64,7 @@ const postSlice = createSlice({
 
             return state;
         },
+
         [createPost.fulfilled]: (state, action) => {
             state = action.payload;
 

@@ -33,7 +33,7 @@ export const signupUser = createAsyncThunk('auth/signup', async ({ email, userna
         return data;
 
     } catch (e) {
-        console.log(e);
+        console.error(e);
     }
 })
 

@@ -10,13 +10,14 @@ const PostContainer = (post) => {
 
     const placeholderImage = "https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png";
 
+
     return (
         <>
             <div className="post__container__main mt-2 mb-2 p-1 flex">
                 <div className="user__avatar">
                     <img
                         className='avatar'
-                        src={post.userImage || placeholderImage}
+                        src={post.displayImage || placeholderImage}
                         alt="user__avatar"
                     />
                 </div>
