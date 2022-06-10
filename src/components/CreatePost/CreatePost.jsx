@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { createPost } from '../../features/postSlice';
 
 
-const CreatePost = ({ setPostOverlayIsOpen, overlay }) => {
+const CreatePost = ({ setPostOverlayOpen, overlay, edit }) => {
 
     const dispatch = useDispatch();
 
@@ -15,7 +15,7 @@ const CreatePost = ({ setPostOverlayIsOpen, overlay }) => {
 
 
     const initialPostData = {
-        content: "",
+        content: edit ? "edit" : "",
         username: user.username,
         displayImage: user.displayImage,
         userFirstName: user.firstName,
@@ -29,7 +29,9 @@ const CreatePost = ({ setPostOverlayIsOpen, overlay }) => {
 
         dispatch(createPost(postData));
 
-        overlay && setPostOverlayIsOpen(false);
+        overlay && setPostOverlayOpen(false);
+        overlay && setPostData(initialPostData);
+
         setPostData(initialPostData);
     }
 

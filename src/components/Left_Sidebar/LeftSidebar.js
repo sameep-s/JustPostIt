@@ -72,7 +72,8 @@ const LeftSidebar = () => {
             </aside>
 
             {/* postoverlayContainer */}
-            <PostOverlay {...{ postOverlayIsOpen, setPostOverlayIsOpen }} />
+            <PostOverlay postOverlayOpen={postOverlayIsOpen} setPostOverlayOpen={setPostOverlayIsOpen} />
+
             <LogoutOverlay {...{ logoutOverlayIsOpen, setLogoutOverlayIsOpen }} />
         </>
     )

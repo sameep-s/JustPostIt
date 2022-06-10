@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import './postOptionsOverlay.css';
 import { deletePost } from '../../features/postSlice';
+import PostOverlay from '../PostOverlay/PostOverlay';
 
 const PostOptionsOverlay = ({ setPostOptionsIsOpen, postId }) => {
+
+    const [overlayIsOpen, setOverlayIsOpen] = useState(false);
 
 
     const dispatch = useDispatch();
@@ -28,6 +31,7 @@ const PostOptionsOverlay = ({ setPostOptionsIsOpen, postId }) => {
 
                     <div
                         className="option"
+                        onClick={() => setOverlayIsOpen(true)}
                         style={{ color: "var(--dark-primary)" }}
 
                     >EDIT</div>
@@ -37,6 +41,9 @@ const PostOptionsOverlay = ({ setPostOptionsIsOpen, postId }) => {
                     onClick={() => setPostOptionsIsOpen(false)}
                     className="colorPaletteOverlay pos-fix"></div>
             </div>
+
+            <PostOverlay postOverlayOpen={overlayIsOpen} setPostOverlayOpen={setOverlayIsOpen} edit />
+
         </>
     )
 }
