@@ -19,37 +19,30 @@ const PostContainer = ({ post }) => {
     const [replyOverlayIsOpen, setReplyOverlayIsOpen] = useState(false);
     const [postOptionsIsOpen, setPostOptionsIsOpen] = useState(false);
     const [editOverlayIsOpen, setEditOverlayIsOpen] = useState(false)
-    const [liked, setLiked] = useState(false);
 
 
     const dispatch = useDispatch();
     const { bookmarks } = useSelector((state) => state.bookmarks);
+    const { posts } = useSelector((state) => state.post)
 
 
     function isPresentInBookmarks() {
         return bookmarks?.filter((item) => item._id === postId).length !== 0
     }
 
+    function isPresentInLiked() {
+        return posts?.filter((item) => item._id === postId)[0].likes?.likedBy[0]?.username === user.username;
+    }
+
 
     function likeDislikeHandler() {
-        if (liked) {
-            setLiked(false);
-            dispatch(dislikePost(postId))
-        } else {
-            dispatch(likePost(postId));
-            setLiked(true)
-        }
-
+        isPresentInLiked() ? dispatch(dislikePost(postId)) : dispatch(likePost(postId));
     }
 
     function bookmarkHandler() {
-        if (isPresentInBookmarks()) {
-            dispatch(removeBookmark(postId));
-        } else {
-            dispatch(addBookmark(postId));
-        }
-
+        isPresentInBookmarks() ? dispatch(removeBookmark(postId)) : dispatch(addBookmark(postId));
     }
+
 
     return (
         <>
@@ -90,8 +83,8 @@ const PostContainer = ({ post }) => {
                     <div className="user__post__actions flex jc-space-btw">
 
 
-                        <div className={liked ? "flex a-item-center liked" : "flex a-item-center"}> <FontAwesomeIcon
-                            onClick={likeDislikeHandler} icon={faHeart} /> <span className='pl-1 h-5 txt-gray' >{post.likes.likeCount || ""}</span>
+                        <div className={isPresentInLiked() ? "flex a-item-center liked" : "flex a-item-center"}> <FontAwesomeIcon
+                            onClick={likeDislikeHandler} icon={faHeart} /> <span className='pl-1 h-5 txt-gray' >{posts?.filter((item) => item._id === postId)[0].likes?.likeCount || ""}</span>
                         </div>
 
                         <div className=""> <FontAwesomeIcon onClick={() => setReplyOverlayIsOpen(true)} icon={faComment} /></div>

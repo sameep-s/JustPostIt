@@ -11,3 +11,7 @@
     font-family: var(--font-heading);
     border-bottom: .1rem solid var(--dark);
 }
+
+.bookmark__area{
+    width: 100%;
+}

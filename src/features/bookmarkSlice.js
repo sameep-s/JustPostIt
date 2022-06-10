@@ -43,7 +43,7 @@ export const removeBookmark = createAsyncThunk('/bookmark/remove', async (postId
                 authorization: encodedToken,
             }
         })
-        console.log(`data`, bookmarks);
+        console.log(`bookmarks`, bookmarks);
         return bookmarks;
     }
     catch (e) {

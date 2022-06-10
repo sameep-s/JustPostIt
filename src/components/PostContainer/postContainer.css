@@ -5,6 +5,8 @@
     border-radius: 1rem;
     cursor: pointer;
     transition: 300ms;
+    color: black;
+    width: 100%;
 }
 
 .post__container__main:hover{
