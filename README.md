@@ -46,12 +46,13 @@ https://github.com/sameep-s/justPostIt.git
 # Bookmarks
 <ul>
   <li>Add To BookMarks</li>
-  <li>Remove NOTES from ARCHIVES</li>
+  <li>Remove a post from Bookmarks</li>
 </ul>
 
 
-# Follow Uuser
+# User
 <ul>
+  <li>User Profile</li>
   <li>Follow Users</li>
   <li>UnFollow Users</li>
 </ul>
