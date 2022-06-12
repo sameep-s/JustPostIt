@@ -49,20 +49,35 @@
     font-size: 2rem;
 }
 
-.user__post__actions .svg-inline--fa{
-    height: 2rem;
-    width: 2rem;
+.post__actions__icons__div{
+    width: 5rem;
+    margin-top: 1rem ;
+
+}
+
+.post__actions__icons__div .anticon {
+    font-size: 1.8rem;
+    color: var(--darker);
     cursor: pointer;
-    margin: 1rem 0;
     border-radius: 50%;
     transition: 200ms;
+    padding: 1rem;
 }
 
-.user__post__actions .svg-inline--fa:hover{
-    color: var(--primary);
+.post__actions__icons__div  .anticon-heart:hover{
+    color: var(--danger);
+    background-color: var(--danger-shade);
 }
 
-.liked{
+.post__actions__icons__div{
+    font-size: 1.4rem;
+}
+
+.post__actions__icons__div .liked {
+    color: red ;
+}
+
+.post__actions__icons__div .liked:hover{
     color: red;
 }
 
