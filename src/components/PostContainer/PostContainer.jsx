@@ -9,6 +9,7 @@ import PostEditModal from '../PostEditModal/PostEditModal';
 import { useDispatch, useSelector } from 'react-redux';
 import { dislikePost, likePost } from '../../features/postSlice';
 import { addBookmark, removeBookmark } from '../../features/bookmarkSlice';
+import { BookFilled, BookOutlined, CommentOutlined, HeartFilled, HeartOutlined, ShareAltOutlined } from '@ant-design/icons';
 
 
 const PostContainer = ({ post }) => {
@@ -56,7 +57,7 @@ const PostContainer = ({ post }) => {
                 </div>
 
                 <div className="user__post__body">
-                    <div className="post__body__userInfo flex">
+                    <div className="post__body__userInfo flex  a-item-center">
                         <span className="user__name__post">{post.userFirstName} {post.userLastName}</span>
                         <span className="user__id__post txt-gray ml-1">@{post.username}</span>
 
@@ -76,20 +77,28 @@ const PostContainer = ({ post }) => {
 
                     </div>
 
-                    <div className="post__body__content  mb-2">
+                    <div className="post__body__content">
                         {post.content}
                     </div>
 
                     <div className="user__post__actions flex jc-space-btw">
 
-
-                        <div className={isPresentInLiked() ? "flex a-item-center liked" : "flex a-item-center"}> <FontAwesomeIcon
-                            onClick={likeDislikeHandler} icon={faHeart} /> <span className='pl-1 h-5 txt-gray' >{posts?.filter((item) => item._id === postId)[0].likes?.likeCount || ""}</span>
+                        <div className='post__actions__icons__div flex jc-center a-item-center'>
+                            {isPresentInLiked() ? <HeartFilled className='liked' onClick={likeDislikeHandler} /> : <HeartOutlined onClick={likeDislikeHandler} />}
+                            <span className='txt-gray liked' >{posts?.filter((item) => item._id === postId)[0].likes?.likeCount || ""}</span>
                         </div>
 
-                        <div className=""> <FontAwesomeIcon onClick={() => setReplyOverlayIsOpen(true)} icon={faComment} /></div>
-                        <div className=""> <FontAwesomeIcon icon={faShareNodes} /></div>
-                        <div className={isPresentInBookmarks() ? "bookmarked" : ""}  > <FontAwesomeIcon onClick={bookmarkHandler} icon={faBookmark} /></div>
+                        <div className='post__actions__icons__div flex jc-center a-item-center'>
+                            <CommentOutlined />
+                        </div>
+
+                        <div className='post__actions__icons__div flex jc-center a-item-center'>
+                            <ShareAltOutlined />
+                        </div>
+
+                        <div className='post__actions__icons__div flex jc-center a-item-center'>
+                            {isPresentInBookmarks() ? <BookFilled onClick={bookmarkHandler} /> : <BookOutlined onClick={bookmarkHandler} />}
+                        </div>
                     </div>
                 </div>
 
