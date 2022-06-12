@@ -3,6 +3,7 @@ import './postContainer.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faComment, faShareNodes, faHeart, faBookmark, faEllipsisVertical } from '@fortawesome/free-solid-svg-icons';
+import { solid, regular, brands } from '@fortawesome/fontawesome-svg-core/import.macro';
 import PostReplyOverlay from '../PostReplyOverlay/PostReplyOverlay';
 import PostOptionsOverlay from '../PostOptionsOverlay/PostOptionsOverlay';
 import PostEditModal from '../PostEditModal/PostEditModal';
@@ -84,7 +85,7 @@ const PostContainer = ({ post }) => {
 
 
                         <div className={isPresentInLiked() ? "flex a-item-center liked" : "flex a-item-center"}> <FontAwesomeIcon
-                            onClick={likeDislikeHandler} icon={faHeart} /> <span className='pl-1 h-5 txt-gray' >{posts?.filter((item) => item._id === postId)[0].likes?.likeCount || ""}</span>
+                            onClick={likeDislikeHandler} icon={regular('coffee')} /> <span className='pl-1 h-5 txt-gray' >{posts?.filter((item) => item._id === postId)[0].likes?.likeCount || ""}</span>
                         </div>
 
                         <div className=""> <FontAwesomeIcon onClick={() => setReplyOverlayIsOpen(true)} icon={faComment} /></div>
